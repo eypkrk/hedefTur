@@ -1,0 +1,68 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.List;
+
+public class Main {
+    public static void main(String[]args){
+        Scanner tara = new Scanner(System.in);
+        System.out.printf("Hedef Tur: ");
+        int hedefTur = tara.nextInt();
+        int bir = 0;
+        int iki = 0;
+        int uc = 0;
+        List<Integer> yaris1 = new ArrayList<Integer>();
+        List<Integer> yaris2 = new ArrayList<Integer>();
+        List<Integer> yaris3 = new ArrayList<Integer>();
+        do {
+
+            if(hedefTur >=1 && hedefTur <= 99){
+                System.out.println("Tur Sayınız: "+ hedefTur);
+                for (int i = 1; i <= hedefTur; i++) {
+                    int zar1 = (int) (Math.random() * 6) +1;
+                    int zar2 = (int) (Math.random() * 6) +1;
+                    int zar3 = (int) (Math.random() * 6) +1;
+                    System.out.print("Yarismaci 1 - ");
+                    System.out.println(zar1);
+                    System.out.print("Yarismaci 2 - ");
+                    System.out.println(zar2);
+                    System.out.print("Yarismaci 3 - ");
+                    System.out.println(zar3);
+
+                    if (zar1 == zar2 && zar2 == zar3){
+                        bir += zar1;
+                        iki += zar2;
+                        uc += zar3;
+                        System.out.println(bir + " " + iki + " " + uc);
+                    } else if (zar1 == zar2 && zar1 > zar3) {
+                        bir += zar1*2;
+                        iki += zar2*2;
+                        uc += zar3;
+                        System.out.println(bir + " " + iki + " " + uc);
+                    } else if (zar1 == zar3 && zar1 > zar2) {
+                        bir += zar1*2;
+                        iki += zar2;
+                        uc += zar3*2;
+                        System.out.println(bir + " " + iki + " " + uc);
+                    } else if (zar2 == zar3 && zar2 > zar1) {
+                        bir += zar1;
+                        iki += zar2*2;
+                        uc += zar3*2;
+                        System.out.println(bir + " " + iki + " " + uc);
+                    } else if (zar1 != zar2 && zar2 != zar3) {
+                        bir += zar1;
+                        iki += zar2;
+                        uc += zar3;
+                        System.out.println(bir + " " + iki + " " + uc);
+                    }
+                    yaris1.add(zar1);
+                    yaris2.add(zar2);
+                    yaris3.add(zar3);
+                }
+                return ;
+            }
+
+        }while(hedefTur >=1 && hedefTur <=99);
+
+    }
+}
